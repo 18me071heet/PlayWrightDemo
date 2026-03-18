@@ -34,7 +34,10 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: 🧪 Run Tests on ${{ matrix.browser }}
-        run: npx playwright test --project=${{ matrix.browser }}
+        run: |
+          echo "Running tests on ${{ matrix.browser }}"
+          npx playwright test --project=${{ matrix.browser }} --reporter=html
+        continue-on-error: false   # ensures workflow fails only on real test failures
 
       - name: 📊 Upload Playwright Report
         if: always()
