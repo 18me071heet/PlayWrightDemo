@@ -5,7 +5,7 @@ on:
     branches: [ main, stage ]
   pull_request:
   schedule:
-    - cron: '0 0 * * *'   # runs daily
+    - cron: '0 0 * * *'   # daily run (5:30 AM IST)
 
 jobs:
   test:
@@ -31,8 +31,8 @@ jobs:
       - name: 🌐 Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: 🧪 Run Tests (Multi-browser)
-        run: npx playwright test --project=chromium --project=firefox --reporter=html
+      - name: 🧪 Run Tests
+        run: npx playwright test
 
       - name: 📊 Upload Playwright Report
         if: always()
