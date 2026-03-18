@@ -40,9 +40,6 @@ jobs:
       - name: 🌐 Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      # 5️⃣ Show Playwright config (optional, for debugging)
-      - name: 🔍 Show Playwright Config
-        run: npx playwright show-config
 
       # 6️⃣ Run tests for the current browser in matrix
       - name: 🧪 Run Tests on ${{ matrix.browser }}
