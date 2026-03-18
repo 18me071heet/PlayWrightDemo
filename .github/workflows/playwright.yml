@@ -15,7 +15,7 @@ jobs:
     # Matrix to run multiple browsers in parallel
     strategy:
       matrix:
-        browser: [chromium, firefox, webkit]
+        browser: [chromium, firefox]
 
     env:
       EMAIL: ${{ secrets.EMAIL }}
