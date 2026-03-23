@@ -45,16 +45,3 @@ jobs:
           name: playwright-report-${{ matrix.browser }}
           path: playwright-report/
 
-  # 2️⃣ Deploy Job: Runs only once after all test jobs succeed
-  deploy-staging:
-    runs-on: ubuntu-latest
-    needs: test                  # wait for all matrix test jobs
-    if: ${{ success() }}         # run only if all tests pass
-    steps:
-      - name: 📥 Checkout Code
-        uses: actions/checkout@v4
-
-      - name: 🚀 Deploy to Staging
-        run: |
-          echo "Deploying app to staging environment..."
-          ./scripts/deploy-to-staging.sh
